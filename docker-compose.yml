@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=mysql://demouser:demopassword@myrdsinstance.cjg0wcim8bck.ap-southeast-5.rds.amazonaws.com:3306/demo
+    depends_on:
+      - db
+  db:
+    image: mysql:8
+    environment:
+      - MYSQL_ROOT_PASSWORD=demouser
+      - MYSQL_DATABASE=demo
+      - MYSQL_USER=demouser
+      - MYSQL_PASSWORD=demopassword
