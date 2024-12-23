@@ -1,5 +1,5 @@
 module "Rds" {
-  source        = "./modules/rds"
+  source = "./modules/rds"
 }
 
 module "ecrRepo" {
